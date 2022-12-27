@@ -6,7 +6,7 @@ namespace UdemyJwtApp.Back.Core.Application.Interfaces
     {
         Task<List<T>> GetAllAsync();
         Task<T?> GetByIdAsync(object id);
-        Task<T?> GetByFilter(Expression<Func<T, bool>> filter);
+        Task<T?> GetByFilterAsync(Expression<Func<T, bool>> filter);
 
         Task CreateAsync(T entity);
 
