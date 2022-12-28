@@ -10,11 +10,11 @@ namespace UdemyJwtApp.Back.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthControlller : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IMediator mediator;
 
-        public AuthControlller(IMediator mediator)
+        public AuthController(IMediator mediator)
         {
             this.mediator = mediator;
         }

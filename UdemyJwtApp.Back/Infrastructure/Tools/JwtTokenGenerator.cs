@@ -26,10 +26,10 @@ namespace UdemyJwtApp.Back.Infrastructure.Tools
 
             var expireDate = DateTime.UtcNow.AddMinutes(JwtTokenDefaults.Expire);
 
-            JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(issuer: JwtTokenDefaults.ValidIssuer, audience: JwtTokenDefaults.ValidAudience, claims: null, notBefore: DateTime.UtcNow, expires: expireDate, signingCredentials: credentials);
+            JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(issuer: JwtTokenDefaults.ValidIssuer, audience: JwtTokenDefaults.ValidAudience, claims: claims, notBefore: DateTime.UtcNow, expires: expireDate, signingCredentials: credentials);
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-            //handler.WriteToken()
+
             return new TokenResponseDto(handler.WriteToken(jwtSecurityToken),expireDate);
         }
     }
