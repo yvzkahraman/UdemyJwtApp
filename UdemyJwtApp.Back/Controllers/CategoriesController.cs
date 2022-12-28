@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UdemyJwtApp.Back.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.Back.Core.Application.Features.CQRS.Queries;
 
 namespace UdemyJwtApp.Back.Controllers
 {
+    [Authorize(Roles="Admin,Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -48,7 +50,7 @@ namespace UdemyJwtApp.Back.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             await this.mediator.Send(new DeleteCategoryCommandRequest(id));
-            return NoContent();
+            return Ok();
         }
     }
 }
