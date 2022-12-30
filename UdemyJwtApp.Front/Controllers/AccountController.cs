@@ -46,13 +46,19 @@ namespace UdemyJwtApp.Front.Controllers
                         JwtSecurityTokenHandler handler = new();
                         var token = handler.ReadJwtToken(tokenModel.Token);
 
-                        var claimsIdentity = new ClaimsIdentity(token.Claims, JwtBearerDefaults.AuthenticationScheme);
+                        var claims = token.Claims.ToList();
+
+                        if (tokenModel.Token != null)
+                            claims.Add(new Claim("accesToken", tokenModel.Token));
+
+                        var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
 
                         var authProps = new AuthenticationProperties
                         {
                             ExpiresUtc = tokenModel.ExpireDate,
                             IsPersistent = true,
                         };
+
 
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
 

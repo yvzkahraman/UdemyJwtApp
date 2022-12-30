@@ -1,0 +1,56 @@
+﻿@model List<ProductListModel>
+@{
+    Layout = "_Layout";
+}
+
+@{
+    if (Model?.Count > 0)
+    {
+        <div class="text-end">
+            <a asp-action="Create" asp-controller="Product">Yeni Kayıt Oluştur</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                    <td>Stock</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>
+                            @product.Id
+
+                        </td>
+                        <td>
+                            @product.Name
+                        </td>
+                        <td>
+                            @product.Price
+                        </td>
+
+                        <td>
+                            @product.Stock
+                        </td>
+                        <td>
+                            <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" class="btn btn-warning btn-sm">Güncelle</a>
+                            <a asp-action="Remove" asp-controller="Product" asp-route-id="@product.Id" class="btn btn-danger btn-sm">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="text-center">
+            Herhangi bir kayıt bulunamadı
+        </div>
+    }
+}

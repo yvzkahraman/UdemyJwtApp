@@ -7,7 +7,7 @@ using UdemyJwtApp.Back.Core.Application.Features.CQRS.Queries;
 
 namespace UdemyJwtApp.Back.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles="Admin, Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

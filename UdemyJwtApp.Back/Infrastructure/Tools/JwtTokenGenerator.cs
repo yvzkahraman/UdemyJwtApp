@@ -24,7 +24,7 @@ namespace UdemyJwtApp.Back.Infrastructure.Tools
 
             SigningCredentials credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
-            var expireDate = DateTime.UtcNow.AddMinutes(JwtTokenDefaults.Expire);
+            var expireDate = DateTime.UtcNow.AddDays(JwtTokenDefaults.Expire);
 
             JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(issuer: JwtTokenDefaults.ValidIssuer, audience: JwtTokenDefaults.ValidAudience, claims: claims, notBefore: DateTime.UtcNow, expires: expireDate, signingCredentials: credentials);
 

@@ -1,0 +1,47 @@
+﻿@model List<CategoryListModel>
+@{
+    Layout = "_Layout";
+}
+
+@{
+    if (Model?.Count > 0)
+    {
+        <div class="text-end">
+            <a asp-action="Create" asp-controller="Category">Yeni Kayıt Oluştur</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Definition</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var category in Model)
+                {
+                    <tr>
+                        <td>
+                            @category.Id
+
+                        </td>
+                        <td>
+                            @category.Definition
+                        </td>
+                        <td>
+                            <a asp-action="Update" asp-controller="Category" asp-route-id="@category.Id" class="btn btn-warning btn-sm">Update</a>
+                            <a asp-action="Remove" asp-controller="Category" asp-route-id="@category.Id" class="btn btn-danger btn-sm">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="text-center">
+            Herhangi bir kayıt bulunamadı
+        </div>
+    }
+}
