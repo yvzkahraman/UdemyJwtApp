@@ -5,7 +5,7 @@ namespace UdemyJwtApp.Front.Models
 {
     public class CreateProductModel
     {
-        [Required(ErrorMessage ="Ürün adı boş geçilemez")]
+        [Required(ErrorMessage = "Ürün adı boş geçilemez")]
         public string? Name { get; set; }
 
         [Required(ErrorMessage = "Stok boş geçilemez")]
@@ -16,7 +16,7 @@ namespace UdemyJwtApp.Front.Models
 
         public decimal Price { get; set; }
 
-        [Required(ErrorMessage ="Kategori seçimi yapınız")]
+        [Required(ErrorMessage = "Kategori seçimi yapınız")]
         public int CategoryId { get; set; }
 
         public SelectList? Categories { get; set; }

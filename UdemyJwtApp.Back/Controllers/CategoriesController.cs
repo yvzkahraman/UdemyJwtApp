@@ -6,7 +6,7 @@ using UdemyJwtApp.Back.Core.Application.Features.CQRS.Queries;
 
 namespace UdemyJwtApp.Back.Controllers
 {
-    [Authorize(Roles="Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase

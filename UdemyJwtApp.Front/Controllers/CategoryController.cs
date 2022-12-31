@@ -73,9 +73,9 @@ namespace UdemyJwtApp.Front.Controllers
 
 
                     var jsonData = JsonSerializer.Serialize(model);
-                    var content = new StringContent(jsonData,Encoding.UTF8,"application/json");
+                    var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
-                   var response = await client.PostAsync("http://localhost:5287/api/categories", content);
+                    var response = await client.PostAsync("http://localhost:5287/api/categories", content);
 
                     if (response.IsSuccessStatusCode)
                     {

@@ -14,8 +14,8 @@ namespace UdemyJwtApp.Back.Infrastructure.Tools
 
             if (!string.IsNullOrEmpty(dto.Role))
                 claims.Add(new Claim(ClaimTypes.Role, dto.Role));
-            
-            claims.Add(new Claim(ClaimTypes.NameIdentifier,dto.Id.ToString()));
+
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, dto.Id.ToString()));
 
             if (!string.IsNullOrEmpty(dto.Username))
                 claims.Add(new Claim("Username", dto.Username));
@@ -30,7 +30,7 @@ namespace UdemyJwtApp.Back.Infrastructure.Tools
 
             JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
 
-            return new TokenResponseDto(handler.WriteToken(jwtSecurityToken),expireDate);
+            return new TokenResponseDto(handler.WriteToken(jwtSecurityToken), expireDate);
         }
     }
 }

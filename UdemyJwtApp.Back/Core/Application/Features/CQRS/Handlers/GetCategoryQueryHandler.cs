@@ -19,7 +19,7 @@ namespace UdemyJwtApp.Back.Core.Application.Features.CQRS.Handlers
 
         public async Task<CategoryListDto?> Handle(GetCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-            var result = await this.repository.GetByFilterAsync(x=>x.Id == request.Id); 
+            var result = await this.repository.GetByFilterAsync(x => x.Id == request.Id);
             return this.mapper.Map<CategoryListDto>(result);
         }
     }

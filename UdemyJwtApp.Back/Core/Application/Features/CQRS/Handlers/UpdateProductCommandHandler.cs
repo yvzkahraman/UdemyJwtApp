@@ -26,7 +26,7 @@ namespace UdemyJwtApp.Back.Core.Application.Features.CQRS.Handlers
                 await this.repository.UpdateAsync(updatedProduct);
             }
 
-            return Unit.Value; 
+            return Unit.Value;
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.IdentityModel.Tokens.Jwt;
 using UdemyJwtApp.Back.Core.Application.Features.CQRS.Commands;
 using UdemyJwtApp.Back.Core.Application.Features.CQRS.Queries;
 using UdemyJwtApp.Back.Infrastructure.Tools;
@@ -30,8 +28,8 @@ namespace UdemyJwtApp.Back.Controllers
         public async Task<IActionResult> Login(CheckUserQueryRequest request)
         {
             var dto = await this.mediator.Send(request);
-            if(dto.IsExist)
-            {              
+            if (dto.IsExist)
+            {
                 return Created("", JwtTokenGenerator.GenerateToken(dto));
             }
             else

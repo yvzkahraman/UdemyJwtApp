@@ -13,7 +13,7 @@ namespace UdemyJwtApp.Back.Persistance.Context
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Category> Categories => Set<Category>();
         public DbSet<AppUser> AppUsers => Set<AppUser>();
-        public DbSet<AppRole>AppRoles =>Set<AppRole>();
+        public DbSet<AppRole> AppRoles => Set<AppRole>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

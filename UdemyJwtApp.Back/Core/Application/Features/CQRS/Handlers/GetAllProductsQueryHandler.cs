@@ -20,7 +20,7 @@ namespace UdemyJwtApp.Back.Core.Application.Features.CQRS.Handlers
 
         public async Task<List<ProductListDto>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            
+
             var data = await this.repository.GetAllAsync();
             return this.mapper.Map<List<ProductListDto>>(data);
         }
